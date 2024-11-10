@@ -1,4 +1,6 @@
+import TodoApp from "@/sections/todo/TodoApp";
+
 const Todo = () => {
-  return <div>Todo</div>;
+  return <TodoApp />;
 };
 export default Todo;
