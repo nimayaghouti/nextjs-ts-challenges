@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/assets/styles/globals.css";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "NextTS Challenges",
@@ -16,7 +17,12 @@ interface Props {
 const MainLayout = ({ children }: Props) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main className="h-full w-full min-h-screen pt-20 bg-slate-100">
+          {children}
+        </main>
+      </body>
     </html>
   );
 };
