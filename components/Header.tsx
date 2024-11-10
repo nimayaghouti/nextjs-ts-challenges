@@ -22,12 +22,12 @@ const Header = () => {
           Home
         </Link>
         <Link
-          href="/pagination"
+          href="/table-pagination"
           className={`px-2 py-1 rounded ${
-            currentPath === "/pagination" ? "bg-white text-slate-900" : ""
+            currentPath === "/table-pagination" ? "bg-white text-slate-900" : ""
           }`}
         >
-          Pagination
+          Table Pagination
         </Link>
         <Link
           href="/todo"
