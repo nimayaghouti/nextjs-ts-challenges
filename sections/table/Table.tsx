@@ -1,4 +1,7 @@
+"use client";
 import { Todo, Column } from "@/app/table-pagination/page";
+import usePagination from "@/hooks/usePagination";
+import Pagination from "@/components/Pagination";
 
 interface Props {
   data: Todo[];
@@ -7,7 +10,19 @@ interface Props {
 }
 
 const Table = ({ data, itemsPerPage, columns }: Props) => {
-  console.log(data, itemsPerPage, columns);
-  return <div>Table</div>;
+  const { totalPages, currentPage, currentPageData, handlePageChange } =
+    usePagination(data, itemsPerPage);
+
+  console.log(columns);
+  console.log(currentPage, currentPageData);
+  return (
+    <div>
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
+    </div>
+  );
 };
 export default Table;
