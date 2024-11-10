@@ -2,7 +2,7 @@ import instance from "@/services/apiService";
 import Table from "@/sections/table/Table";
 export interface Todo {
   id: number;
-  title: string;
+  todo: string;
   completed: boolean | string;
   userId: number;
 }
@@ -22,7 +22,7 @@ const TablePagination = async () => {
     }));
 
     const columns: Column[] = [
-      { title: "Title", key: "title" },
+      { title: "Title", key: "todo" },
       { title: "Status", key: "completed" },
       { title: "User Id", key: "userId" },
     ];

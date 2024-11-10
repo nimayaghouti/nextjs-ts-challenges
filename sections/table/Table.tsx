@@ -1,5 +1,6 @@
 "use client";
 import { Todo, Column } from "@/app/table-pagination/page";
+import TableContent from "./TableContent";
 import usePagination from "@/hooks/usePagination";
 import Pagination from "@/components/Pagination";
 
@@ -16,7 +17,8 @@ const Table = ({ data, itemsPerPage, columns }: Props) => {
   console.log(columns);
   console.log(currentPage, currentPageData);
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-4 pt-16">
+      <TableContent pageData={currentPageData} columns={columns} />
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
