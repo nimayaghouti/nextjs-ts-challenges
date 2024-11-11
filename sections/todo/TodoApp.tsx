@@ -1,17 +1,18 @@
 "use client";
-import Button from "@/components/Button";
-import Modal from "@/components/Modal";
-import useModal from "@/hooks/useModal";
+import { useState } from "react";
+import TodoOptions from "./TodoOptions";
+
 const TodoApp = () => {
-  const { isOpen, openModal, closeModal } = useModal();
-  console.log(isOpen);
+  const [status, setStatus] = useState<string>("all");
+
+  const handleStatusChange = (newStatus: string) => {
+    setStatus(newStatus);
+  };
   return (
-    <div>
-      <Button onClick={openModal}>Open Modal</Button>
-      <Modal isOpen={isOpen} closeModal={closeModal}>
-        <p>test modal functionality</p>
-      </Modal>
-    </div>
+    <section className="min-h-screen w-1/2 min-w-72 mx-auto flex flex-col justify-center items-center gap-3">
+      <h2 className="text-slate-800 text-3xl font-bold">TODO LIST</h2>
+      <TodoOptions status={status} onStatusChange={handleStatusChange} />
+    </section>
   );
 };
 export default TodoApp;

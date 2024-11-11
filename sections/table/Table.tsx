@@ -14,8 +14,6 @@ const Table = ({ data, itemsPerPage, columns }: Props) => {
   const { totalPages, currentPage, currentPageData, handlePageChange } =
     usePagination(data, itemsPerPage);
 
-  console.log(columns);
-  console.log(currentPage, currentPageData);
   return (
     <div className="flex flex-col justify-center items-center gap-4 pt-16">
       <TableContent pageData={currentPageData} columns={columns} />

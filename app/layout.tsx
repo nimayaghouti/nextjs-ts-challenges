@@ -20,7 +20,7 @@ const MainLayout = ({ children }: Props) => {
       <body>
         <div id="overlay"></div>
         <Header />
-        <main className="h-full w-full min-h-screen pt-20 bg-slate-100">
+        <main className="min-h-screen w-full pt-20 bg-slate-100">
           {children}
         </main>
       </body>

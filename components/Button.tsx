@@ -20,7 +20,6 @@ const Button = ({
   isDisabled = false,
   prependIcon,
   appendIcon,
-  maxWidth = "20rem",
   variant = "primary",
   ...otherProps
 }: ButtonProps) => {
@@ -35,7 +34,7 @@ const Button = ({
     <button
       type={type}
       onClick={onClick}
-      className={`flex justify-center items-center capitalize gap-3 px-4 py-2 rounded-lg h-12 w-full max-w-[${maxWidth}] border-none cursor-pointer transition duration-500 ${buttonVariantsMap[variant]} ${className}`}
+      className={`flex justify-center items-center capitalize gap-3 px-4 py-2 rounded-lg h-12 border-none cursor-pointer transition duration-500 ${buttonVariantsMap[variant]} ${className}`}
       disabled={isDisabled || isLoading}
       {...otherProps}
     >
