@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import TodoOptions from "./TodoOptions";
 import TodoList from "./TodoList";
 import { useSelector } from "react-redux";
@@ -9,6 +9,14 @@ const TodoApp = () => {
   const [status, setStatus] = useState<string>("all");
   const tasks = useSelector((state: RootState) => state.tasks.tasks);
 
+  const filteredTasks = useMemo(() => {
+    return status === "complete"
+      ? tasks.filter((task) => task.status === "complete")
+      : status === "incomplete"
+      ? tasks.filter((task) => task.status === "incomplete")
+      : tasks;
+  }, [status, tasks]);
+
   const handleStatusChange = (newStatus: string) => {
     setStatus(newStatus);
   };
@@ -16,7 +24,7 @@ const TodoApp = () => {
     <section className="mt-4 w-1/2 min-w-72 mx-auto flex flex-col justify-center items-center gap-3">
       <h2 className="text-slate-800 text-3xl font-bold">TODO LIST</h2>
       <TodoOptions status={status} onStatusChange={handleStatusChange} />
-      <TodoList tasks={tasks} />
+      <TodoList tasks={filteredTasks} />
     </section>
   );
 };
