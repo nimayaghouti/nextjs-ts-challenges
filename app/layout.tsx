@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/assets/styles/globals.css";
 import Header from "@/components/Header";
+import ReduxProvider from "@/components/ReduxProvider"; // Import ReduxProvider
 
 export const metadata: Metadata = {
   title: "NextTS Challenges",
@@ -18,11 +19,13 @@ const MainLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body>
-        <div id="overlay"></div>
-        <Header />
-        <main className="min-h-screen w-full pt-20 bg-slate-100">
-          {children}
-        </main>
+        <ReduxProvider>
+          <div id="overlay"></div>
+          <Header />
+          <main className="min-h-screen w-full pt-20 bg-slate-100">
+            {children}
+          </main>
+        </ReduxProvider>
       </body>
     </html>
   );
