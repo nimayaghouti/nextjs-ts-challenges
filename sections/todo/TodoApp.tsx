@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
 const TodoApp = () => {
@@ -6,12 +7,7 @@ const TodoApp = () => {
   console.log(isOpen);
   return (
     <div>
-      <button
-        className="p-2 bg-slate-900 text-white rounded-md"
-        onClick={openModal}
-      >
-        Open Modal
-      </button>
+      <Button onClick={openModal}>Open Modal</Button>
       <Modal isOpen={isOpen} closeModal={closeModal}>
         <p>test modal functionality</p>
       </Modal>
