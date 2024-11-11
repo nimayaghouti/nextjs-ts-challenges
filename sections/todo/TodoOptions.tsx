@@ -1,3 +1,4 @@
+import TodoForm from "./TodoForm";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
@@ -29,7 +30,7 @@ const TodoOptions = ({ status, onStatusChange }: TodoOptionsProps) => {
         </select>
       </div>
       <Modal isOpen={isOpen} closeModal={closeModal}>
-        <p>todoform</p>
+        <TodoForm close={closeModal} />
       </Modal>
     </>
   );
