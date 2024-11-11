@@ -18,6 +18,7 @@ const MainLayout = ({ children }: Props) => {
   return (
     <html lang="en">
       <body>
+        <div id="overlay"></div>
         <Header />
         <main className="h-full w-full min-h-screen pt-20 bg-slate-100">
           {children}
