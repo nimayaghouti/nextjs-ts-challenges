@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addTask, updateTask } from "@/store/slices/taskSlice";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { Task } from "@/types/task";
+import { AppDispatch } from "@/store/store";
 
 interface TodoFormProps {
   data?: Task | null;
@@ -14,11 +17,13 @@ interface FormData {
 }
 
 const TodoForm = ({ data = null, close }: TodoFormProps) => {
+  const dispatch: AppDispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormData>({
     defaultValues: {
       title: data?.title || "",
       status: data?.status || "incomplete",
@@ -26,21 +31,20 @@ const TodoForm = ({ data = null, close }: TodoFormProps) => {
   });
 
   const onSubmit = (formData: FormData) => {
-    console.log(formData);
-    // if (data) {
-    //   const updatedTask = {
-    //     ...data,
-    //     ...formData,
-    //   };
-    //   updateTask(updatedTask);
-    // } else {
-    //   const newTask = {
-    //     ...formData,
-    //     id: Date.now(),
-    //     date: new Date(),
-    //   };
-    //   addTask(newTask);
-    // }
+    if (data) {
+      const updatedTask = {
+        ...data,
+        ...formData,
+      };
+      dispatch(updateTask(updatedTask));
+    } else {
+      const newTask = {
+        ...formData,
+        id: Date.now().toString(),
+        date: Date.now(),
+      };
+      dispatch(addTask(newTask));
+    }
     close();
   };
 
