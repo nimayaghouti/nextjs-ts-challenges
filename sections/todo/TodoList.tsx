@@ -1,4 +1,4 @@
-// import TodoItem from "./TodoItem";
+import TodoItem from "./TodoItem";
 import { Task } from "@/types/task";
 
 interface TodoListProps {
@@ -15,8 +15,7 @@ const TodoList = ({ tasks }: TodoListProps) => {
       ) : (
         <ul className="flex flex-col justify-center items-stretch gap-6">
           {tasks.map((task: Task) => (
-            // <TodoItem key={task.id} task={task} className="list__item" />
-            <p key={task.id}>{task.title}</p>
+            <TodoItem key={task.id} task={task} />
           ))}
         </ul>
       )}
