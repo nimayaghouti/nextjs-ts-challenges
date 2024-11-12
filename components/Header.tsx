@@ -12,7 +12,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 bg-slate-900 text-white h-20 flex items-center justify-between px-8">
       <div className="flex items-center gap-2">
         <Image src={logo} alt="logo" className="w-6 h-6" />
-        <h2 className="text-2xl font-bold">NextJS+TS Challenges</h2>
+        <h2 className="text-xl sm:text-2xl font-bold">NextJS+TS Challenges</h2>
       </div>
 
       {/* Toggle Button for Mobile Menu */}
@@ -25,7 +25,7 @@ const Header = () => {
       </label>
 
       {/* Mobile Menu */}
-      <nav className="hidden peer-checked:flex sm:flex flex-col items-start gap-3 p-4 absolute left-0 right-0 top-20 sm:relative sm:flex-row sm:top-0 bg-slate-900">
+      <nav className="hidden peer-checked:flex sm:flex flex-col items-start gap-3 max-sm:p-4 absolute left-0 right-0 top-20 sm:relative sm:flex-row sm:top-0 bg-slate-900">
         <Link
           href="/"
           className={`px-2 py-1 rounded ${
